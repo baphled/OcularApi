@@ -8,8 +8,15 @@ module Ocular
       self.account = Octokit::Client.new(:login => options[:user], :password => options[:password])
     end
 
-    def find
-      account.commits("nature/laserwolf")[0...10]
+    def find repo
+      total_commits = account.commits(repo)
+      total_commits[0...5].collect do |info|
+        {
+          author: info.author.login,
+          message: info.commit.message,
+          date: info.commit.committer.date,
+        }
+      end
     end
   end
 end

@@ -1,0 +1,7 @@
+require "./ocular_api"
+
+Ocular::Config.config do |c|
+  c.login = 'username'
+  c.password = 'password'
+  c.repository = 'account/repository'
+end

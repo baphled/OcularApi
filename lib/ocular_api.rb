@@ -9,16 +9,18 @@ class OcularApi < Sinatra::Base
   end
 
   get '/commits.json' do
+    commits = Ocular::Commits.new user: Ocular::Config.login, password: Ocular::Config.password
     response = {
-      commit: [
-        {
-          user: 'baphled',
-          message: 'A cool new change',
-          date: '2013-1-16'
-        }
-      ]
+      commit: commits.find( Ocular::Config.repository )
     }
     JSON.generate response
+  end
+
+  get '/commits.txt' do
+    commits = Ocular::Commits.new user: Ocular::Config.login, password: Ocular::Config.password
+    commits.find(Ocular::Config.repository).collect do |commit|
+      "#{commit[:author]}: #{commit[:message]} at #{commit[:date]}"
+    end.join ' ... '
   end
 
   get '/errors' do

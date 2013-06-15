@@ -8,31 +8,11 @@ describe OcularApi do
 
   describe "GET /commits" do
     it "is a successful request" do
-      get '/commits'
+      get '/commits.json'
       last_response.should be_successful
     end
 
-    it "contains a list of commits" do
-      get '/commits.json'
-      expected = {
-        commit: [
-          {
-            user: 'baphled',
-            message: 'A cool new change',
-            date: '2013-1-16'
-          }
-        ]
-      }
-      last_response.body.should include JSON.generate(expected)
-    end
-    it "contains the number of commits"
     it "lists pull requests"
-
-    describe "a commit message" do
-      it "contains the authors name"
-      it "contains the time it was commited"
-      it "contains the commit message"
-    end
 
     it "contains the number of commits for the day"
     it "contains commit stats for the past week"

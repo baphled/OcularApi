@@ -14,6 +14,12 @@ ENV['RACK_ENV'] = 'test'
 Dir["#{File.dirname(__FILE__)}/../lib/**/*.rb"].each {|f| require f}
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
+Ocular::Config.config do |c|
+  c.login = 'username'
+  c.password = 'password'
+  c.repository = 'account/repository'
+end
+
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
 end
