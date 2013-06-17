@@ -4,4 +4,7 @@ Ocular::Config.config do |c|
   c.login = 'username'
   c.password = 'password'
   c.repository = 'account/repository'
+  c.webistrano_url = 'http://foo.bar.com'
+  c.deploy_project = 'some-project'
+  c.deploy_stage = 'staging'
 end

@@ -6,6 +6,7 @@ describe Ocular::Config do
     c.password = 'password'
     c.repository = 'foo/repo'
   end
+
   describe "#config" do
     it "stores a login" do
       Ocular::Config.login.should eql 'foo'

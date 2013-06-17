@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment>
+  <completed-at type="datetime">2013-06-17T11:24:43Z</completed-at>
+  <created-at type="datetime">2013-06-17T11:24:07Z</created-at>
+  <description>Automated deploy from Jenkins</description>
+  <id type="integer">09</id>
+  <pid type="integer">23</pid>
+  <revision>foo</revision>
+  <stage-id type="integer">254</stage-id>
+  <status>success</status>
+  <task>deploy:migrations</task>
+  <updated-at type="datetime">2013-06-17T11:24:43Z</updated-at>
+  <user-id type="integer">15</user-id>
+</deployment>

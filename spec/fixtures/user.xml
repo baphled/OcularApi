@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<user>
+  <admin type="integer">0</admin>
+  <created-at type="datetime">2011-07-29T12:21:45Z</created-at>
+  <disabled type="datetime" nil="true"></disabled>
+  <email>foo@bar.com</email>
+  <from-ldap type="boolean">false</from-ldap>
+  <id type="integer">15</id>
+  <login>jenkins</login>
+  <production-deploy type="boolean">false</production-deploy>
+  <time-zone>UTC</time-zone>
+  <updated-at type="datetime">2013-05-13T13:28:34Z</updated-at>
+</user>
