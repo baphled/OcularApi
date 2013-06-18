@@ -22,7 +22,7 @@ class OcularApi < Sinatra::Base
   get '/commits.txt' do
     commits = Ocular::Commits.new user: Ocular::Config.login, password: Ocular::Config.password
     commits.find(Ocular::Config.repository).collect do |commit|
-      "#{commit[:author]}: #{commit[:message]} at #{commit[:date]}"
+      "#{commit.author}: #{commit.message} at #{commit.date}"
     end.join ' ... '
   end
 

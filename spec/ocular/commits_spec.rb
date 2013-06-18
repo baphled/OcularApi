@@ -18,18 +18,18 @@ describe Ocular::Commits do
 
     describe "a commit" do
       it "has am author" do
-        commits.find(repository).first[:author].should eql 'baphled'
+        commits.find(repository).first.author.should eql 'baphled'
       end
 
       it "has a message" do
         expected = 
         "Bump version and fix issues with gemspec"
-        commits.find(repository).first[:message].should eql expected
+        commits.find(repository).first.message.should eql expected
       end
 
       it "has a date" do
         expected = "2013-02-05T21:15:12Z"
-        commits.find(repository).first[:date].should eql expected
+        commits.find(repository).first.date.should eql expected
       end
     end
   end
