@@ -27,8 +27,14 @@ describe Ocular::Commits do
         commits.find(repository).first.message.should eql expected
       end
 
+      it "strips extra spaces"
+      it "strips newlines" do
+        expected = "Do something do something else"
+        commits.find(repository).first.message.should eql expected
+      end
+
       it "has a date" do
-        expected = "2013-02-05T21:15:12Z"
+        expected = "21:15:12 05 Feb 2013"
         commits.find(repository).first.date.should eql expected
       end
     end
