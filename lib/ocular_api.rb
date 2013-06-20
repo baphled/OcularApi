@@ -24,7 +24,7 @@ class OcularApi < Sinatra::Base
     "#{commit.sha}: #{commit.message} at #{commit.date} by #{commit.author}"
   end
 
-  get '/errors' do
+  get '/errors.txt' do
     "Errors information will live here eventually"
   end
 end
