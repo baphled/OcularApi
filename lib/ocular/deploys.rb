@@ -24,12 +24,12 @@ module Ocular
       response = make_request(@deploy_url)
       xml = Nokogiri.parse(response.body)
       Ocular::Deployment.new({
-        timestamp: xml.at("created-at").text,
+        timestamp: DateTime.parse(xml.at("created-at").text).strftime("%H:%M:%S %d %b %Y"),
         user: deploy_user(xml.at("user-id").text),
         revision: xml.at("revision").text,
         status: xml.at("status").text,
         description: xml.at("description").text,
-        finished_at: xml.at("completed-at").text
+        finished_at: DateTime.parse(xml.at("completed-at").text).strftime("%H:%M:%S %d %b %Y")
       })
     end
 
