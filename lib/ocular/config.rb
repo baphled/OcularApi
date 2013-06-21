@@ -5,6 +5,8 @@ module Ocular
 
       attr_accessor :webistrano_url, :deploy_project, :deploy_stage
 
+      attr_accessor :ci_user, :ci_password
+
       def configure
         yield self
         true

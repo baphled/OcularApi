@@ -37,7 +37,7 @@ module Ocular
       url = URI.parse(url)
       http = Net::HTTP.new(url.host, url.port)
       request = Net::HTTP::Get.new(url.request_uri)
-      request.basic_auth('jenkins', 'jenkins')
+      request.basic_auth(Ocular::Config.ci_user, Ocular::Config.ci_password)
       http.request(request)
     end
   end
