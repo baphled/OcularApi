@@ -19,10 +19,9 @@ class OcularApi < Sinatra::Base
   end
 
   get '/commits.txt' do
-    commits = Ocular::Commits.new user: Ocular::Config.login, password: Ocular::Config.password
-    commits.find(Ocular::Config.repository).collect do |commit|
-      "#{commit.author}: #{commit.message} at #{commit.date}"
-    end.join ' ... '
+    latest_commit = Ocular::Commits.new user: Ocular::Config.login, password: Ocular::Config.password
+    commit = latest_commit.find(Ocular::Config.repository)
+    "#{commit.sha}: #{commit.message} at #{commit.date} by #{commit.author}"
   end
 
   get '/errors' do

@@ -10,10 +10,8 @@ module Ocular
     end
 
     def find repo
-      total_commits = account.commits(repo)
-      total_commits[0...5].collect do |info|
-        Ocular::Commit.new info
-      end
+      latest_commit = account.commits(repo).first
+      Ocular::Commit.new latest_commit
     end
   end
 end
