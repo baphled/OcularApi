@@ -31,11 +31,11 @@ describe Ocular::Deploys do
     end
 
     it "returns when the job was created" do
-      deploys.last_deployment.date.should eql '2013-06-17T11:24:07Z'
+      deploys.last_deployment.date.should eql '11:24:07 17 Jun 2013'
     end
 
     it "returns when it was complete" do
-      deploys.last_deployment.finished_at.should eql '2013-06-17T11:24:43Z'
+      deploys.last_deployment.finished_at.should eql '11:24:43 17 Jun 2013'
     end
   end
 end

@@ -12,30 +12,21 @@ describe Ocular::Commits do
     let(:repository) { Ocular::Config.repository }
     let(:commits) { Ocular::Commits.new user: user, password: password}
 
-    it "returns the last 5 commits" do
-      commits.find(repository).size.should eql 5
-    end
-
     describe "a commit" do
       it "has am author" do
-        commits.find(repository).first.author.should eql 'baphled'
+        commits.find(repository).author.should eql 'baphled'
       end
 
       it "has a message" do
         expected = 
         "Bump version and fix issues with gemspec"
-        commits.find(repository).first.message.should eql expected
+        commits.find(repository).message.should eql expected
       end
 
       it "strips extra spaces"
-      it "strips newlines" do
-        expected = "Do something do something else"
-        commits.find(repository).first.message.should eql expected
-      end
-
       it "has a date" do
         expected = "21:15:12 05 Feb 2013"
-        commits.find(repository).first.date.should eql expected
+        commits.find(repository).date.should eql expected
       end
     end
   end
