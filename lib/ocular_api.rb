@@ -27,4 +27,8 @@ class OcularApi < Sinatra::Base
   get '/errors.txt' do
     "Errors information will live here eventually"
   end
+
+  get '/repos.txt' do
+    Ocular::Config.repositories.collect { |repo| repo.split("/").last }.join(" ... ")
+  end
 end
