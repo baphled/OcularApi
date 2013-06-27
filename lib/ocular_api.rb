@@ -25,7 +25,11 @@ class OcularApi < Sinatra::Base
   end
 
   get '/errors.txt' do
-    "Errors information will live here eventually"
+    "Error rate: 0.84% ... Success rate: 98.05% ... Last error: 31 Dec 2012"
+  end
+
+  get '/stats.txt' do
+    "Requests: 404:30 200:520 301:5 500:0 ... App stats: DB calls: 49 App mem: 1GB, DB size: 5GB"
   end
 
   get '/repos.txt' do
