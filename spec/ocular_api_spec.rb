@@ -23,4 +23,24 @@ describe OcularApi do
       it "handles XML requests"
     end
   end
+
+  describe "GET /deploy" do
+    it "returns the deploy job number" do
+      get '/deploy'
+      deploy_stub = { :job_id => 1234 }
+      Ocular::Deployment.stub(:build).and_return deploy_stub
+      JSON.parse(last_response.body).should eql :job_id => 1234
+    end
+  end
+
+  describe "GET /deploy/status/:job_id" do
+    it "takes a job number"
+    it "returns 404 if job not found"
+    it "returns the current status of the deployment"
+
+    context "job complete" do
+      it "returns completion information"
+      it "returns the job status"
+    end
+  end
 end
