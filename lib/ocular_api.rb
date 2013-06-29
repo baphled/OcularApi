@@ -4,13 +4,13 @@ require 'sinatra/base'
 
 class OcularApi < Sinatra::Base
 
-  get '/deploys.txt' do
+  get '/deploy/last.txt' do
     deploy = Ocular::Deploys.new name: Ocular::Config.deploy_project, stage: Ocular::Config.deploy_stage
     last_deployment = deploy.last_deployment
     "Revision ##{last_deployment.short_revision} of #{Ocular::Config.deploy_project} was #{last_deployment.status} deployed to #{Ocular::Config.deploy_stage} by #{last_deployment.user} on #{last_deployment.date} and finished at #{last_deployment.finished_at}".capitalize
   end
 
-  get '/commits.json' do
+  get '/commit/last.json' do
     commits = Ocular::Commits.new user: Ocular::Config.login, password: Ocular::Config.password
     response = {
       commit: commits.find( Ocular::Config.repository )
@@ -18,7 +18,7 @@ class OcularApi < Sinatra::Base
     JSON.generate response
   end
 
-  get '/commits.txt' do
+  get '/commit/last.txt' do
     latest_commit = Ocular::Commits.new user: Ocular::Config.login, password: Ocular::Config.password
     commit = latest_commit.find(Ocular::Config.repository)
     "#{commit.sha}: #{commit.message} at #{commit.date} by #{commit.author}"

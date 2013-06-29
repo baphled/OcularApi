@@ -6,9 +6,9 @@ describe OcularApi do
     OcularApi
   end
 
-  describe "GET /commits" do
+  describe "GET /commit/last.txt" do
     it "is a successful request" do
-      get '/commits.json'
+      get '/commit/last.txt'
       last_response.should be_successful
     end
 
