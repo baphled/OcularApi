@@ -7,6 +7,7 @@ gem 'nokogiri'
 group :development do
   gem 'pry'
   gem 'shotgun'
+  gem 'webmock'
 end
 
 group :test, :development do
