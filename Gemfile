@@ -2,6 +2,7 @@ source :rubygems
 
 gem 'sinatra'
 gem 'octokit'
+gem 'hpricot'
 gem 'nokogiri'
 
 group :development do

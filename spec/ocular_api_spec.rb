@@ -26,10 +26,10 @@ describe OcularApi do
 
   describe "GET /deploy" do
     it "returns the deploy job number" do
-      get '/deploy'
       deploy_stub = { :job_id => 1234 }
-      Ocular::Deployment.stub(:build).and_return deploy_stub
-      JSON.parse(last_response.body).should eql :job_id => 1234
+      Ocular::Project.stub(:deploy).and_return deploy_stub
+      get '/deploy'
+      JSON.parse(last_response.body).should eql "job_id" => 1234
     end
   end
 

@@ -4,6 +4,11 @@ require 'sinatra/base'
 
 class OcularApi < Sinatra::Base
 
+  get '/deploy' do
+    build = Ocular::Project.deploy name: Ocular::Config.deploy_project, stage: Ocular::Config.deploy_stage
+    "Starting deployment job: #{build[:job_id]}"
+  end
+
   get '/deploy/last.txt' do
     deploy = Ocular::Deploys.new name: Ocular::Config.deploy_project, stage: Ocular::Config.deploy_stage
     last_deployment = deploy.last_deployment
@@ -29,7 +34,7 @@ class OcularApi < Sinatra::Base
   end
 
   get '/stats.txt' do
-    "Requests: 404:30 200:520 301:5 500:0 ... App stats: DB calls: 49 App mem: 1GB, DB size: 5GB"
+    "Requests: 404:30 200:520 301:5 500:0 ... Page load avg: 540msec ... App stats: DB calls: 49 App mem: 1GB, DB size: 5GB Uptime: 9 years 23 days"
   end
 
   get '/repos.txt' do
